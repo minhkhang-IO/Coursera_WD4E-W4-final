@@ -1,0 +1,65 @@
+.container,
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+figure {
+  margin: 0;
+  padding: 15px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  color: #333333;
+}
+@media screen and (min-width: 772px) {
+  .container,
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  figure {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  figure:last-child {
+    grid-column: span 2; /* Figure cuối cùng chiếm trọn 2 cột */
+  }
+}
+@media screen and (min-width: 992px) {
+  .container,
+  main {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  figure {
+    border-radius: 0;
+    aspect-ratio: auto;
+    display: block;
+    text-align: left;
+  }
+
+  figure:nth-child(3n) {
+    grid-column: span 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  figure {
+    background-color: #1a1a1a;
+    color: #fffde7;
+    border-color: #000000;
+  }
+}
